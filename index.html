@@ -2199,7 +2199,11 @@ async function printDashboard() {
 const apiKey = "AQ.Ab8RN6LN4S6AV0wsLZm7O6KZuKVVQ9iXJpk0ZaK5jK49dGOXdQ"; 
 
 async function fetchAIInsights(promptText, retries = 5) {
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+  if (!apiKey) {
+      throw new Error("API_KEY_INVALID");
+  }
+
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
   const payload = { 
     contents: [{ parts: [{ text: promptText }] }], 
     systemInstruction: { 
@@ -2217,9 +2221,15 @@ async function fetchAIInsights(promptText, retries = 5) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
       });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      
       const data = await res.json();
+      
+      if (!res.ok) {
+         throw new Error(data.error?.message || `HTTP Error ${res.status}`);
+      }
+      
       return data.candidates?.[0]?.content?.parts?.[0]?.text || "ไม่มีผลลัพธ์จากการวิเคราะห์";
+      
     } catch (err) {
       if (i === retries - 1) throw err;
       await new Promise(r => setTimeout(r, delays[i]));
@@ -2289,7 +2299,21 @@ async function generateAIAnalysis(type = window.currentView || 'overview') {
     let formattedAnalysis = analysis.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
     if (contentBox) contentBox.innerHTML = formattedAnalysis;
   } catch (e) {
-    if (contentBox) contentBox.innerHTML = '<p style="color: var(--rose);"><i class="fa-solid fa-triangle-exclamation"></i> เกิดข้อผิดพลาดในการเชื่อมต่อกับ AI หรือโควต้าอาจเต็ม กรุณาลองกดวิเคราะห์ใหม่อีกครั้ง</p>';
+    if (contentBox) {
+        if (e.message === "API_KEY_INVALID" || e.message.includes("401") || e.message.includes("403")) {
+            contentBox.innerHTML = `
+              <div style="color: var(--rose); background: #FFF1F2; padding: 12px 16px; border-radius: 8px; border: 1px solid #FECDD3;">
+                <i class="fa-solid fa-triangle-exclamation"></i> <strong>เกิดข้อผิดพลาด: API Key ไม่ถูกต้องหรือไม่ได้รับสิทธิ์</strong> 
+                <br><span style="font-size: 13px; color: var(--rose-l); margin-top: 6px; display: block;">
+                กรุณาตรวจสอบคีย์ที่ฝังในระบบอีกครั้ง หากยังไม่ได้ให้สร้างคีย์ใหม่ที่ <b><a href="https://aistudio.google.com/app/apikey" target="_blank" style="color:var(--blue);text-decoration:underline;">Google AI Studio</a></b></span>
+              </div>`;
+        } else {
+            contentBox.innerHTML = `
+              <div style="color: var(--rose); background: #FFF1F2; padding: 12px 16px; border-radius: 8px; border: 1px solid #FECDD3;">
+                <i class="fa-solid fa-triangle-exclamation"></i> <strong>เกิดข้อผิดพลาด:</strong> ${e.message} 
+              </div>`;
+        }
+    }
   } finally {
     if (icon) icon.classList.remove('fa-spin', 'fa-rotate');
   }
