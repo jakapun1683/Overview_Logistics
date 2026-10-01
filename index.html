@@ -634,7 +634,7 @@ body.export-active #export-header p {
         <div class="card kpi-center"><p class="kpi-label">ออเดอร์วันล่าสุด (<span id="pack-kpi-latest-date">-</span>)</p><p class="kpi-value txt-purple" id="pack-kpi-latest-vol">0</p></div>
         <div class="card kpi-center"><p class="kpi-label">เฉลี่ยแพ็คต่อวัน (รวมทีม)</p><p class="kpi-value" id="pack-kpi-day">0</p></div>
         <div class="card kpi-center"><p class="kpi-label">ความเร็วแพ็คเฉลี่ย (ออเดอร์/ชม.)</p><p class="kpi-value txt-emerald" id="pack-kpi-speed">0</p></div>
-        <div class="card kpi-center"><p class="kpi-label">Team Util. (เป้า 200/คน/วัน)</p><p class="kpi-value txt-blue" id="pack-kpi-util">0%</p></div>
+        <div class="card kpi-center"><p class="kpi-label" id="pack-kpi-util-label">Team Util.</p><p class="kpi-value txt-blue" id="pack-kpi-util">0%</p></div>
       </div>
 
       <div class="chart-grid-3">
@@ -991,7 +991,7 @@ function genPackerCard(name, stats, colorIndex){
     
     <div style="margin-bottom: 16px;">
       <div style="display:flex; justify-content:space-between; font-size:10px; color:var(--muted); margin-bottom:6px; text-transform:uppercase;">
-        <span>Utilization (เป้า 200/วัน)</span>
+        <span>Utilization (เป้า ${stats.targetPerDay}/วัน)</span>
       </div>
       <div style="width:100%; background:var(--border); border-radius:4px; height:6px; overflow:hidden;">
         <div style="width:${Math.min(stats.util, 100)}%; background:${uColor}; height:100%; border-radius:4px; transition: 0.5s ease-in-out;"></div>
@@ -1780,21 +1780,27 @@ function applyPackFilter(){
   // === ปรับสูตร Team Utilization ใหม่ ===
   let totalDailyUtil = 0;
   let validDaysCount = 0;
+  let avgTeamTarget = 0;
+  let sumTeamTarget = 0;
   
   for (let day in dailyStats) {
       let numPackers = dailyStats[day].packers.size; // จำนวนคนทำงานในวันนั้น
       let dailyOrders = dailyStats[day].orders; // ยอดงานในวันนั้น
       
       if (numPackers > 0) {
-          // Utilization ของแต่ละวัน = (ยอดออเดอร์วันนั้น / (คนแพ็ควันนั้น * 200)) * 100
-          let dUtil = (dailyOrders / (numPackers * 200)) * 100;
+          // กำหนดเป้าหมาย: ตั้งแต่ 1 ต.ค. 2026 เป้า 300 นอกนั้น 200
+          let targetPerPerson = (day >= '2026-10-01') ? 300 : 200;
+          // Utilization ของแต่ละวัน = (ยอดออเดอร์วันนั้น / (คนแพ็ควันนั้น * เป้าหมาย)) * 100
+          let dUtil = (dailyOrders / (numPackers * targetPerPerson)) * 100;
           totalDailyUtil += dUtil;
           validDaysCount++;
+          sumTeamTarget += targetPerPerson;
       }
   }
   
   // นำผลรวมเปอร์เซ็นต์ทุกวัน มาหารด้วยจำนวนวันทำงานทั้งหมด
   let overallUtil = validDaysCount > 0 ? Math.round(totalDailyUtil / validDaysCount) : 0;
+  avgTeamTarget = validDaysCount > 0 ? Math.round(sumTeamTarget / validDaysCount) : 200;
   // ===================================
 
   let dArrSort = Array.from(days).sort();
@@ -1812,6 +1818,7 @@ function applyPackFilter(){
   updateEl('pack-kpi-speed', overallSpeed.toLocaleString());
   updateEl('pack-kpi-day', numDay.toLocaleString());
   updateEl('pack-kpi-util', overallUtil + '%');
+  updateEl('pack-kpi-util-label', `Team Util. (เป้า ${avgTeamTarget})`);
 
   let pArr = Object.keys(p).filter(k => k !== 'ไม่ระบุ').sort((a,b)=>p[b].count-p[a].count);
   let stArr = Object.keys(st).filter(k => k !== 'ไม่ระบุ').sort((a,b)=>{
@@ -2029,13 +2036,19 @@ function applyPackFilter(){
     // ถ้ามีชั่วโมงหลักให้ใช้ชั่วโมงหลักหาร ถ้าไม่มีเลย (วันที่แย่มากๆ) ให้ใช้ชั่วโมงทั้งหมดเป็น Fallback
     let aHr = fullHours > 0 ? Math.round(fullHourQty / fullHours) : (workHrs > 0 ? Math.round(pOrders / workHrs) : 0);
     
-    let util = Math.round((aDay / 200) * 100);
+    // คำนวณเป้าหมายรายคนตามวันที่มาทำงานจริง
+    let pTargetTotal = 0;
+    pDays.forEach(day => {
+        pTargetTotal += (day >= '2026-10-01') ? 300 : 200;
+    });
+    let avgTargetPerDay = pDays.size > 0 ? Math.round(pTargetTotal / pDays.size) : 200;
+    let util = pTargetTotal > 0 ? Math.round((pOrders / pTargetTotal) * 100) : 0;
 
     let hrs = Math.floor(pDur / 60);
     let mins = Math.round(pDur % 60);
     let timeStr = `${hrs} ชม. ${mins} นาที`;
 
-    compareHTML += genPackerCard(pName, { avgPerDay:aDay, avgPerHour:aHr, topChannel:getTop(pCh), topStation:getTop(pSt), topShipping:getTop(pSh), util:util, totalTime: timeStr, workHrs: workHrs }, idx);
+    compareHTML += genPackerCard(pName, { avgPerDay:aDay, avgPerHour:aHr, topChannel:getTop(pCh), topStation:getTop(pSt), topShipping:getTop(pSh), util:util, totalTime: timeStr, workHrs: workHrs, targetPerDay: avgTargetPerDay }, idx);
   });
 
   let compContainer = document.getElementById('pack-compare-container');
@@ -2401,7 +2414,7 @@ async function generateAIAnalysis(type = window.currentView || 'overview') {
     - ยอดออเดอร์แพ็ค (ทั้งหมด): ${document.getElementById('pack-kpi-total')?.innerText || '0'}
     - เฉลี่ยแพ็คต่อวัน: ${document.getElementById('pack-kpi-day')?.innerText || '0'}
     - ความเร็วแพ็คเฉลี่ย: ${document.getElementById('pack-kpi-speed')?.innerText || '0'} ออเดอร์/ชม.
-    - ประสิทธิภาพทีม (Team Util. เป้า 200/คน/วัน): ${document.getElementById('pack-kpi-util')?.innerText || '0%'}
+    - ประสิทธิภาพทีม (Team Util.): ${document.getElementById('pack-kpi-util')?.innerText || '0%'}
     `;
   } else if (type === 'shipping') {
     prompt += `
