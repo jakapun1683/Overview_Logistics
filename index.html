@@ -283,6 +283,28 @@ body.export-active #export-header p {
 #custom-notification.show {
   transform: translateX(0);
 }
+
+/* ===== Modal API Key ===== */
+.modal-overlay {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 9999;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none; transition: 0.2s;
+}
+.modal-overlay.show {
+  opacity: 1; pointer-events: auto;
+}
+.modal-box {
+  background: var(--card); padding: 24px; border-radius: 16px; width: 420px; max-width: 90%;
+  transform: translateY(-20px); transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+.modal-overlay.show .modal-box {
+  transform: translateY(0);
+}
+.form-input {
+  width: 100%; padding: 10px 14px; border: 1px solid var(--border2); border-radius: 8px; font-family: inherit; font-size: 14px; color: var(--text); transition: 0.2s;
+}
+.form-input:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px rgba(37,99,235,0.1); }
 </style>
 </head>
 <body>
@@ -293,11 +315,25 @@ body.export-active #export-header p {
     <span id="custom-notification-msg">Message</span>
 </div>
 
+<!-- API Key Modal -->
+<div id="api-key-modal" class="modal-overlay no-print-export">
+  <div class="modal-box">
+    <h3 style="margin-bottom:12px; font-size:18px; font-weight:700;"><i class="fa-solid fa-key txt-amber"></i> ตั้งค่า Gemini API Key</h3>
+    <p style="font-size:13px; color:var(--text2); margin-bottom:16px; line-height: 1.5;">สำหรับการนำโค้ดไปใช้งานนอกระบบ (เช่น Github Pages) คุณจำเป็นต้องใส่ API Key ของคุณเองเพื่อให้ AI ทำงานได้<br><a href="https://aistudio.google.com/app/apikey" target="_blank" style="color:var(--blue); text-decoration:none;">รับ API Key ฟรีที่ Google AI Studio</a></p>
+    <input type="password" id="api-key-input" class="form-input" style="margin-bottom:20px;" placeholder="วาง API Key (AIzaSy...) ที่นี่">
+    <div style="display:flex; justify-content:flex-end; gap:8px;">
+      <button class="btn btn-slate" onclick="closeApiModal()">ปิด</button>
+      <button class="btn btn-blue" onclick="saveApiKey()">บันทึกคีย์</button>
+    </div>
+  </div>
+</div>
+
 <!-- Header -->
 <nav class="topbar no-print-export" id="sticky-header">
   <div class="topbar-inner">
     <div class="brand"><i class="fa-solid fa-server"></i><span>Logistics Central</span></div>
     <div class="topbar-actions">
+      <button class="btn btn-slate" onclick="openApiModal()"><i class="fa-solid fa-key"></i> API Key</button>
       <button class="btn btn-slate" onclick="refreshAll()"><i class="fa-solid fa-rotate" id="refresh-icon"></i> โหลดใหม่</button>
       <button class="btn btn-emerald" onclick="printDashboard()"><i class="fa-solid fa-print"></i> พิมพ์</button>
       <button class="btn btn-indigo" onclick="exportToJPG()"><i class="fa-solid fa-image"></i> JPG</button>
@@ -2339,8 +2375,31 @@ async function printDashboard() {
 // 7. AI INTEGRATION
 // =========================================================
 const apiKey = ""; // API Key จะถูกจัดการโดยอัตโนมัติจากระบบ Canvas
+let userApiKey = localStorage.getItem('gemini_logistics_api_key') || "";
+
+function openApiModal() {
+  document.getElementById('api-key-input').value = userApiKey;
+  document.getElementById('api-key-modal').classList.add('show');
+}
+
+function closeApiModal() {
+  document.getElementById('api-key-modal').classList.remove('show');
+}
+
+function saveApiKey() {
+  userApiKey = document.getElementById('api-key-input').value.trim();
+  localStorage.setItem('gemini_logistics_api_key', userApiKey);
+  closeApiModal();
+  showNotification("บันทึก API Key สำเร็จ กรุณากดวิเคราะห์ใหม่อีกครั้ง");
+}
+
 async function fetchAIInsights(promptText, retries = 5) {
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+  const activeKey = userApiKey || apiKey;
+  if (!activeKey) {
+    throw new Error("API_KEY_MISSING");
+  }
+
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${activeKey}`;
   const payload = { 
     contents: [{ parts: [{ text: promptText }] }], 
     systemInstruction: { 
@@ -2432,8 +2491,13 @@ async function generateAIAnalysis(type = window.currentView || 'overview') {
     let formattedAnalysis = analysis.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
     if (contentBox) contentBox.innerHTML = formattedAnalysis;
   } catch (e) {
-    console.error(e);
-    if (contentBox) contentBox.innerHTML = '<p style="color: var(--rose);"><i class="fa-solid fa-triangle-exclamation"></i> เกิดข้อผิดพลาดในการเชื่อมต่อกับ AI กรุณาลองตรวจสอบ API Key และกดวิเคราะห์ใหม่อีกครั้ง</p>';
+    if (e.message === "API_KEY_MISSING") {
+      // ซ่อน console.error ไว้เพื่อไม่ให้หน้าต่าง Editor แจ้งเตือนกวนใจ
+      if (contentBox) contentBox.innerHTML = '<p style="color: var(--amber-l);"><i class="fa-solid fa-key"></i> ไม่พบ API Key กรุณากดปุ่ม <b><i class="fa-solid fa-key"></i> API Key</b> ที่มุมขวาบนเพื่อตั้งค่าก่อนเริ่มวิเคราะห์</p>';
+    } else {
+      console.error("AI API Error:", e);
+      if (contentBox) contentBox.innerHTML = '<p style="color: var(--rose);"><i class="fa-solid fa-triangle-exclamation"></i> เกิดข้อผิดพลาดในการเชื่อมต่อกับ AI กรุณาลองตรวจสอบ API Key ให้ถูกต้อง หรือลองกดวิเคราะห์ใหม่อีกครั้ง</p>';
+    }
   } finally {
     if (icon) icon.classList.remove('fa-spin', 'fa-rotate');
   }
