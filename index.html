@@ -13,7 +13,6 @@
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0"></script>
 <style>
 :root{
-  /* Light Theme Palette - Professional & Clean */
   --bg: #F1F5F9; 
   --card: #FFFFFF; 
   --card2: #F8FAFC; 
@@ -24,7 +23,6 @@
   --muted: #64748B; 
   --dim: #94A3B8;
   
-  /* Primary & Accent Colors for Light Mode */
   --blue: #2563EB; --blue-l: #1D4ED8; 
   --emerald: #059669; --emerald-l: #047857;
   --rose: #E11D48; --rose-l: #BE123C; 
@@ -40,14 +38,12 @@ body{background:var(--bg);color:var(--text);font-family:'Prompt','Helvetica Neue
 ::-webkit-scrollbar-thumb{background:#CBD5E1;border-radius:4px}
 ::-webkit-scrollbar-thumb:hover{background:#94A3B8}
 
-/* ===== Header ===== */
 .topbar{position:fixed;top:0;left:0;right:0;height:64px;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);z-index:100;display:flex;align-items:center}
 .topbar-inner{max-width:1280px;margin:0 auto;width:100%;padding:0 20px;display:flex;justify-content:space-between;align-items:center}
 .brand{display:flex;align-items:center;gap:12px;color:var(--blue);font-weight:700;font-size:18px}
 .brand span{color:var(--text)}
 .topbar-actions{display:flex;gap:8px}
 
-/* ===== Buttons ===== */
 .btn{border:none;border-radius:10px;padding:8px 14px;font-size:13px;font-weight:500;font-family:inherit;cursor:pointer;display:inline-flex;align-items:center;gap:7px;transition:.15s;color:var(--text)}
 .btn-slate{background:#F1F5F9;color:var(--text2);border:1px solid var(--border)}
 .btn-slate:hover{background:#E2E8F0}
@@ -68,11 +64,9 @@ body{background:var(--bg);color:var(--text);font-family:'Prompt','Helvetica Neue
 .nav-arrow{background:#F1F5F9;border:1px solid var(--border);color:var(--text2);border-radius:10px;padding:8px 14px;cursor:pointer;flex-shrink:0}
 .nav-arrow:hover{background:#E2E8F0}
 
-/* ===== Layout ===== */
 .container{max-width:1280px;margin:0 auto;padding:88px 20px 48px}
 .section-gap>*+*{margin-top:24px}
 
-/* ===== Global Filter ===== */
 .filter-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px;box-shadow:0 4px 20px rgba(0,0,0,.04);position:relative;z-index:60;margin-bottom:24px}
 .filter-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px;margin-bottom:16px}
 .filter-title{display:flex;align-items:center;gap:10px;font-weight:700;font-size:16px;color:var(--text)}
@@ -90,13 +84,11 @@ body{background:var(--bg);color:var(--text);font-family:'Prompt','Helvetica Neue
 select.dark-select{flex:1;width:100%;background:#fff;color:var(--text);border:1px solid var(--border2);border-radius:10px;padding:9px 12px;font-family:inherit;font-size:13px;font-weight:700;text-align:center;box-shadow:inset 0 1px 2px rgba(0,0,0,.03)}
 select.dark-select:focus{outline:none;border-color:var(--blue)}
 
-/* ===== Tabs ===== */
 .tabs{display:flex;flex-wrap:wrap;gap:6px;border-bottom:1px solid var(--border);margin-bottom:24px}
 .tab{background:none;border:none;border-bottom:2px solid transparent;color:var(--muted);font-family:inherit;font-size:14px;font-weight:600;padding:12px 16px;margin-bottom:-1px;cursor:pointer;transition:.15s;display:flex;align-items:center;gap:8px}
 .tab:hover{color:var(--text2)}
 .tab.active{color:var(--blue);border-bottom-color:var(--blue);font-weight:700}
 
-/* ===== Cards & KPI ===== */
 .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px;box-shadow:0 4px 12px rgba(0,0,0,.03)}
 .card-title{font-size:15px;font-weight:700;color:var(--text);border-bottom:1px solid var(--border);padding-bottom:10px;margin-bottom:16px}
 .kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
@@ -124,7 +116,6 @@ select.dark-select:focus{outline:none;border-color:var(--blue)}
 .txt-blue{color:var(--blue)}.txt-emerald{color:var(--emerald)}.txt-purple{color:var(--purple)}
 .txt-rose{color:var(--rose)}.txt-amber{color:var(--amber)}.txt-orange{color:var(--orange)}.txt-red{color:#DC2626}
 
-/* ===== Hero / Highlights ===== */
 .hero{background:#FFFFFF;border:1px solid var(--border);border-radius:16px;padding:24px;position:relative;overflow:hidden;margin-bottom:28px;box-shadow:0 4px 12px rgba(0,0,0,.03)}
 .hero-bg{position:absolute;right:-30px;top:-30px;font-size:140px;color:var(--amber);opacity:.05}
 .hero h2{font-size:19px;font-weight:700;color:var(--text);display:flex;align-items:center;gap:10px;margin-bottom:20px;position:relative;z-index:1}
@@ -135,7 +126,6 @@ select.dark-select:focus{outline:none;border-color:var(--blue)}
 .hero-item .kpi-icon{margin:0 auto 14px;width:56px;height:56px;font-size:26px}
 .hero-num{font-size:38px;font-weight:900;margin-top:6px}
 
-/* ===== Summary sections (Overview) ===== */
 .sum{background:#FFFFFF;border-radius:16px;padding:20px;box-shadow:0 4px 12px rgba(0,0,0,.03); border:1px solid var(--border)}
 .sum h2{font-size:16px;font-weight:600;display:flex;align-items:center;gap:8px;padding-bottom:9px;margin-bottom:16px}
 .sum-blue{background:#F8FAFC;border:1px solid #E2E8F0}
@@ -150,12 +140,10 @@ select.dark-select:focus{outline:none;border-color:var(--blue)}
 .sum-box p:last-child{font-size:22px;font-weight:700;color:var(--text)}
 .sum-box .small-val{font-size:18px}
 
-/* ===== Section heads ===== */
 .page-title{font-size:23px;font-weight:700;display:flex;align-items:center;gap:10px;color:var(--text)}
 .page-sub{font-size:13px;color:var(--muted);margin-top:4px}
 .page-sub span{color:var(--text2)}
 
-/* ===== Charts ===== */
 .chart-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;position:relative;z-index:1}
 .chart-grid-3{display:grid;grid-template-columns:2fr 1fr;gap:22px}
 .span2{grid-column:1/-1}
@@ -163,7 +151,6 @@ select.dark-select:focus{outline:none;border-color:var(--blue)}
 .chart-box.tall{height:330px}
 @media(max-width:900px){.chart-grid,.chart-grid-3{grid-template-columns:1fr}}
 
-/* ===== Insights ===== */
 .insight-wrap{border-radius:16px;padding:24px;box-shadow:0 4px 12px rgba(0,0,0,.03)}
 .iw-blue{background:#F8FAFC;border:1px solid #DBEAFE}
 .iw-emerald{background:#F8FAFC;border:1px solid #D1FAE5}
@@ -179,12 +166,10 @@ select.dark-select:focus{outline:none;border-color:var(--blue)}
 .insight p{font-size:12px;color:var(--text2);line-height:1.6}
 .insight strong{color:var(--text)}
 
-/* ===== Filter bars per view ===== */
 .view-filterbar{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:14px;border-bottom:1px solid var(--border);padding-bottom:16px}
 .fb-left{flex:1;min-width:260px;max-width:480px;position:relative;z-index:50}
 .fb-label{display:block;font-size:13px;font-weight:500;color:var(--text2);margin-bottom:6px}
 
-/* ===== Multi-select dropdown ===== */
 .dd-btn{width:100%;background:#FFFFFF;border:1px solid var(--border2);color:var(--text);border-radius:10px;padding:9px 36px 9px 12px;text-align:left;cursor:pointer;font-family:inherit;font-size:13px;position:relative}
 .dd-btn:focus{outline:none;border-color:var(--blue)}
 .dd-btn .caret{position:absolute;right:12px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:11px}
@@ -200,7 +185,6 @@ select.dark-select:focus{outline:none;border-color:var(--blue)}
 .dd-list li label:hover{background:#F1F5F9}
 .dd-list input{width:15px;height:15px;accent-color:var(--blue)}
 
-/* ===== Loading / alert ===== */
 .loading{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:120px 0}
 .loading i{font-size:46px;color:var(--blue);margin-bottom:22px}
 .loading p{color:var(--text2);font-size:17px;font-weight:500}
@@ -208,7 +192,6 @@ select.dark-select:focus{outline:none;border-color:var(--blue)}
 .alert-nodata i{font-size:38px;color:var(--rose);margin-bottom:10px}
 .alert-nodata p{color:var(--text)}
 
-/* ===== Packer compare cards ===== */
 .compare-wrap{background:#F8FAFC;border:1px solid var(--border);border-radius:16px;padding:24px;margin-top:24px}
 .compare-title{font-size:17px;font-weight:600;color:var(--emerald);display:flex;align-items:center;gap:10px;border-bottom:1px solid #D1FAE5;padding-bottom:12px;margin-bottom:20px}
 .compare-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:22px}
@@ -225,14 +208,12 @@ select.dark-select:focus{outline:none;border-color:var(--blue)}
 .hidden{display:none!important}
 .exporting{display:none!important}
 
-/* ===== Export Mode Styles ===== */
 body.export-active { background: var(--bg); min-width: 1280px !important; height: auto !important; overflow: visible !important; }
 body.export-active #dashboard-container { width: 1280px !important; max-width: none !important; margin: 0 auto !important; padding: 40px !important; overflow: visible !important; }
 body.export-active #packStationContainer,
 body.export-active #stock-mismatch-list { height: auto !important; max-height: none !important; overflow: visible !important; }
 .export-section { margin-bottom: 64px !important; padding-bottom: 48px !important; border-bottom: 2px dashed var(--border) !important; }
 
-/* ===== Export Header ===== */
 #export-header { display: none; }
 body.export-active #export-header { 
   display: block; 
@@ -252,7 +233,6 @@ body.export-active #export-header p {
   color: var(--text2); 
 }
 
-/* ===== Print Styles ===== */
 @media print {
   body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   @page { margin: 10mm; }
@@ -262,7 +242,6 @@ body.export-active #export-header p {
   #custom-notification { display: none !important; }
 }
 
-/* ===== Custom Notification ===== */
 #custom-notification {
   position: fixed;
   top: 20px;
@@ -283,57 +262,20 @@ body.export-active #export-header p {
 #custom-notification.show {
   transform: translateX(0);
 }
-
-/* ===== Modal API Key ===== */
-.modal-overlay {
-  position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 9999;
-  display: flex; align-items: center; justify-content: center;
-  opacity: 0; pointer-events: none; transition: 0.2s;
-}
-.modal-overlay.show {
-  opacity: 1; pointer-events: auto;
-}
-.modal-box {
-  background: var(--card); padding: 24px; border-radius: 16px; width: 420px; max-width: 90%;
-  transform: translateY(-20px); transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-}
-.modal-overlay.show .modal-box {
-  transform: translateY(0);
-}
-.form-input {
-  width: 100%; padding: 10px 14px; border: 1px solid var(--border2); border-radius: 8px; font-family: inherit; font-size: 14px; color: var(--text); transition: 0.2s;
-}
-.form-input:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px rgba(37,99,235,0.1); }
 </style>
 </head>
 <body>
 
-<!-- Custom Notification Container -->
 <div id="custom-notification">
     <i class="fa-solid fa-circle-exclamation"></i>
     <span id="custom-notification-msg">Message</span>
 </div>
 
-<!-- API Key Modal -->
-<div id="api-key-modal" class="modal-overlay no-print-export">
-  <div class="modal-box">
-    <h3 style="margin-bottom:12px; font-size:18px; font-weight:700;"><i class="fa-solid fa-key txt-amber"></i> ตั้งค่า Gemini API Key</h3>
-    <p style="font-size:13px; color:var(--text2); margin-bottom:16px; line-height: 1.5;">สำหรับการนำโค้ดไปใช้งานนอกระบบ (เช่น Github Pages) คุณจำเป็นต้องใส่ API Key ของคุณเองเพื่อให้ AI ทำงานได้<br><a href="https://aistudio.google.com/app/apikey" target="_blank" style="color:var(--blue); text-decoration:none;">รับ API Key ฟรีที่ Google AI Studio</a></p>
-    <input type="password" id="api-key-input" class="form-input" style="margin-bottom:20px;" placeholder="วาง API Key (AIzaSy...) ที่นี่">
-    <div style="display:flex; justify-content:flex-end; gap:8px;">
-      <button class="btn btn-slate" onclick="closeApiModal()">ปิด</button>
-      <button class="btn btn-blue" onclick="saveApiKey()">บันทึกคีย์</button>
-    </div>
-  </div>
-</div>
-
-<!-- Header -->
 <nav class="topbar no-print-export" id="sticky-header">
   <div class="topbar-inner">
     <div class="brand"><i class="fa-solid fa-server"></i><span>Logistics Central</span></div>
     <div class="topbar-actions">
-      <button class="btn btn-slate" onclick="openApiModal()"><i class="fa-solid fa-key"></i> API Key</button>
+      <!-- ซ่อนปุ่ม API Key เพราะฝังในโค้ดแล้ว -->
       <button class="btn btn-slate" onclick="refreshAll()"><i class="fa-solid fa-rotate" id="refresh-icon"></i> โหลดใหม่</button>
       <button class="btn btn-emerald" onclick="printDashboard()"><i class="fa-solid fa-print"></i> พิมพ์</button>
       <button class="btn btn-indigo" onclick="exportToJPG()"><i class="fa-solid fa-image"></i> JPG</button>
@@ -344,13 +286,11 @@ body.export-active #export-header p {
 
 <div class="container" id="dashboard-container">
 
-  <!-- Export Header (Hidden by default) -->
   <div id="export-header">
       <h1>Logistics Operations Dashboard</h1>
       <p id="export-period-text">ช่วงเวลา: ทั้งหมด</p>
   </div>
 
-  <!-- Global Date Filter -->
   <div class="filter-card no-print-export">
     <div class="filter-head">
       <div class="filter-title">
@@ -380,7 +320,6 @@ body.export-active #export-header p {
     </div>
   </div>
 
-  <!-- Tabs -->
   <div class="tabs no-print-export">
     <button id="tab-overview" class="tab active" onclick="switchView('overview')"><i class="fa-solid fa-chart-pie"></i>ภาพรวม (Overview)</button>
     <button id="tab-picking" class="tab" onclick="switchView('picking')"><i class="fa-solid fa-hand-pointer"></i>งานคลังสินค้า (Warehouse)</button>
@@ -388,19 +327,15 @@ body.export-active #export-header p {
     <button id="tab-shipping" class="tab" onclick="switchView('shipping')"><i class="fa-solid fa-truck-fast"></i>การจัดส่ง (Shipping)</button>
   </div>
 
-  <!-- Loading -->
   <div id="main-loading" class="loading hidden">
     <i class="fa-solid fa-circle-notch fa-spin"></i>
     <p>กำลังประมวลผลระบบคลังสินค้า...</p>
   </div>
 
-  <!-- ================= OVERVIEW ================= -->
   <div id="view-overview" class="section-gap">
     <div class="hero">
       <div class="hero-bg"><i class="fa-solid fa-trophy"></i></div>
       <h2><i class="fa-solid fa-star"></i> สิ่งที่โดดเด่นของแต่ละทีม (Team Highlights)</h2>
-      
-      <!-- การ์ดหลัก 2 ใบ (ออเดอร์ทั้งหมด & สินค้าที่หยิบทั้งหมด) -->
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; position: relative; z-index: 1; margin-bottom: 20px;">
         <div class="hero-item" style="padding: 32px;">
           <div class="kpi-icon tint-blue" style="margin: 0 auto 16px; width: 64px; height: 64px; font-size: 32px;"><i class="fa-solid fa-box"></i></div>
@@ -413,8 +348,6 @@ body.export-active #export-header p {
           <p class="hero-num txt-purple" style="font-size: 48px;" id="ov-highlight-pick-items">0</p>
         </div>
       </div>
-
-      <!-- การ์ดรอง 3 ใบ (ความเร็วหยิบ, ความเร็วแพ็ค, ค่าเฉลี่ยแพ็ค) -->
       <div class="hero-grid">
         <div class="hero-item" style="padding: 16px;">
           <div class="kpi-icon tint-emerald" style="margin: 0 auto 12px; width: 44px; height: 44px; font-size: 20px;"><i class="fa-solid fa-bolt"></i></div>
@@ -468,7 +401,6 @@ body.export-active #export-header p {
       </div>
     </div>
 
-    <!-- ================= AI INSIGHTS (OVERVIEW) ================= -->
     <div class="insight-wrap iw-purple" style="margin-top: 24px;">
       <div class="insight-head" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
         <div style="display:flex; align-items:center; gap:12px;">
@@ -487,7 +419,6 @@ body.export-active #export-header p {
     </div>
   </div>
 
-  <!-- ================= PICKING ================= -->
   <div id="view-picking" class="section-gap hidden">
     <div class="view-filterbar no-print-export">
       <div class="fb-left">
@@ -562,7 +493,6 @@ body.export-active #export-header p {
       </div>
     </div>
     
-    <!-- ================= STOCK ACCURACY SECTION ================= -->
     <h2 class="page-title" style="margin-top: 36px; margin-bottom: 24px; font-size: 20px;"><i class="fa-solid fa-clipboard-check txt-emerald"></i> ข้อมูลความแม่นยำของสต็อก</h2>
     <div class="kpi-grid-3">
       <div class="card kpi">
@@ -584,9 +514,7 @@ body.export-active #export-header p {
     <div class="chart-grid" style="margin-top: 16px;">
       <div class="card">
         <h3 class="card-title">รายการสินค้าที่ไม่ตรง (Mismatch Details)</h3>
-        <div class="chart-box tall" style="overflow-y: auto; padding-right: 10px;" id="stock-mismatch-list">
-          <!-- รายชื่อสินค้าจะถูกสร้างที่นี่ -->
-        </div>
+        <div class="chart-box tall" style="overflow-y: auto; padding-right: 10px;" id="stock-mismatch-list"></div>
       </div>
       <div class="card">
         <h3 class="card-title">แนวโน้ม Mismatch และ % รายวัน</h3>
@@ -594,7 +522,6 @@ body.export-active #export-header p {
       </div>
     </div>
 
-    <!-- กราฟแนวโน้มรายสัปดาห์และรายเดือน (กรองตามปีที่เลือกใน Global Filter) -->
     <div class="chart-grid" style="margin-top: 22px;">
       <div class="card">
         <h3 class="card-title" id="stock-week-title">แนวโน้มความแม่นยำรายสัปดาห์</h3>
@@ -625,7 +552,6 @@ body.export-active #export-header p {
     </div>
   </div>
 
-  <!-- ================= PACKING ================= -->
   <div id="view-packing" class="section-gap hidden">
     <div class="view-filterbar no-print-export">
       <div class="fb-left">
@@ -681,7 +607,6 @@ body.export-active #export-header p {
         <div class="card">
           <h3 class="card-title">Station Utilization</h3>
           <div class="chart-box tall" id="packStationContainer" style="display:flex; flex-wrap:wrap; gap:10px; justify-content:center; align-content:flex-start; overflow-y:auto; padding-top:20px;">
-            <!-- Gauge Charts จะถูกสร้างตรงนี้ -->
           </div>
         </div>
       </div>
@@ -729,7 +654,6 @@ body.export-active #export-header p {
     </div>
   </div>
 
-  <!-- ================= SHIPPING ================= -->
   <div id="view-shipping" class="section-gap hidden">
     <div class="view-filterbar no-print-export">
       <div class="fb-left" style="max-width:340px">
@@ -809,18 +733,17 @@ body.export-active #export-header p {
 </div>
 
 <script>
-// =========================================================
-// 1. GLOBAL CONFIG & UTILS
-// =========================================================
-Chart.defaults.color = '#64748b'; // Adjusted for light theme
-Chart.defaults.borderColor = '#e2e8f0'; // Adjusted for light theme
+/* ========================================================= */
+/* 1. GLOBAL CONFIG & UTILS                                  */
+/* ========================================================= */
+Chart.defaults.color = '#64748b'; 
+Chart.defaults.borderColor = '#e2e8f0'; 
 Chart.defaults.font.family = "'Prompt', sans-serif";
 
-// ลงทะเบียน Plugin สำหรับแสดง Data Labels ที่ปลายกราฟ
 Chart.register(ChartDataLabels);
 Chart.defaults.plugins.datalabels = {
-  display: false, // ปิดไว้เป็นค่าเริ่มต้น จะเปิดเฉพาะกราฟที่ต้องการ
-  color: '#475569', // Adjusted for light theme
+  display: false,
+  color: '#475569',
   font: { family: "'Prompt', sans-serif", weight: 'bold', size: 11 }
 };
 
@@ -831,7 +754,6 @@ const STOCK_CSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ9kxb_btvS67
 
 const chartColors = ['#3b82f6','#10b981','#f59e0b','#ef4444','#8b5cf6','#ec4899','#14b8a6','#f97316','#6366f1','#84cc16'];
 
-// Custom Alert UI to replace standard alert()
 function showNotification(msg) {
   const note = document.getElementById('custom-notification');
   const noteMsg = document.getElementById('custom-notification-msg');
@@ -846,43 +768,40 @@ function showNotification(msg) {
   }
 }
 
-// ฟังก์ชันสำหรับกำหนดสีประจำช่องทางการขาย
 function getChannelColor(channelName, index = 0) {
   if(!channelName) return chartColors[index % 10];
   let name = String(channelName).toLowerCase();
-  if(name.includes('shopee')) return '#f97316'; // สีส้ม
-  if(name.includes('tiktok')) return '#0F172A'; // สีดำ (Adjusted for light theme)
-  if(name.includes('lazada')) return '#1e3a8a'; // สีน้ำเงินเข้ม
-  if(name.includes('walk in') || name.includes('walk-in') || name.includes('walkin')) return '#eab308'; // สีเหลือง
+  if(name.includes('shopee')) return '#f97316'; 
+  if(name.includes('tiktok')) return '#0F172A'; 
+  if(name.includes('lazada')) return '#1e3a8a'; 
+  if(name.includes('walk in') || name.includes('walk-in') || name.includes('walkin')) return '#eab308'; 
   return chartColors[index % 10];
 }
 
-// ฟังก์ชันสำหรับกำหนดสีประจำแบรนด์ขนส่ง (Shipping Method)
 function getShippingColor(methodName, index = 0) {
   if(!methodName) return chartColors[index % 10];
   let name = String(methodName).toLowerCase();
-  if(name.includes('spx') || name.includes('shopee')) return '#f97316'; // ส้ม Shopee
-  if(name.includes('j&t') || name.includes('jnt')) return '#dc2626'; // แดง J&T
-  if(name.includes('flash')) return '#facc15'; // เหลือง Flash
-  if(name.includes('lex') || name.includes('lazada')) return '#1e3a8a'; // น้ำเงินเข้ม Lazada
-  if(name.includes('kerry')) return '#ea580c'; // ส้ม Kerry
-  if(name.includes('ninja')) return '#ef4444'; // แดง Ninja
-  if(name.includes('instant') || name.includes('ส่งทันที') || name.includes('grab') || name.includes('lalamove') || name.includes('lineman')) return '#10b981'; // เขียว Instant
-  if(name.includes('ems') || name.includes('ไปรษณีย์') || name.includes('thai post')) return '#ef4444'; // แดง ปณท.
-  if(name.includes('walk in') || name.includes('walk-in') || name.includes('walkin')) return '#eab308'; // เหลือง Walk In
+  if(name.includes('spx') || name.includes('shopee')) return '#f97316'; 
+  if(name.includes('j&t') || name.includes('jnt')) return '#dc2626'; 
+  if(name.includes('flash')) return '#facc15'; 
+  if(name.includes('lex') || name.includes('lazada')) return '#1e3a8a'; 
+  if(name.includes('kerry')) return '#ea580c'; 
+  if(name.includes('ninja')) return '#ef4444'; 
+  if(name.includes('instant') || name.includes('ส่งทันที') || name.includes('grab') || name.includes('lalamove') || name.includes('lineman')) return '#10b981'; 
+  if(name.includes('ems') || name.includes('ไปรษณีย์') || name.includes('thai post')) return '#ef4444'; 
+  if(name.includes('walk in') || name.includes('walk-in') || name.includes('walkin')) return '#eab308'; 
   return chartColors[index % 10];
 }
 
 window.globalDates = { year:new Set(), quarter:new Set(), month:new Set(), week:new Set(), date:new Set() };
 window.pickData = []; window.packData = []; window.shipData = []; window.stockData = [];
 window.uniquePickPickers = new Set(); window.uniquePackPickers = new Set();
-window.currentView = 'overview'; // ติดตามหน้าปัจจุบันที่เปิดอยู่
+window.currentView = 'overview'; 
 
 let pCharts = { rate:null, batchP:null, batchD:null, hour:null, stockDay:null, stockWeek:null, stockMonth:null };
 let kCharts = { lead:null, station:[], week:null, channel:null, time:null, dailyProp:null };
 let sCharts = { daily:null, channel:null, status:null, method:null };
 
-// แก้ไขฟังก์ชันการจัดการหมายเลขออเดอร์ให้กลับมาใช้งานได้อย่างถูกต้อง
 function normOrd(s){ 
   return s ? s.toString().trim().toUpperCase().replace(/[^A-Z0-9]/g,'') : ''; 
 }
@@ -946,7 +865,6 @@ function fmtDispDate(mode, val){
   return val;
 }
 
-// เซฟกัน error จาก Chart.js destroy()
 function destroyChart(obj, name){
   if(Array.isArray(obj[name])){
     obj[name].forEach(c => c.destroy());
@@ -966,7 +884,6 @@ const cInteractive = {
   onHover: (e, els) => { e.native.target.style.cursor = els?.length ? 'pointer' : 'default'; }
 };
 
-// คลิกที่กราฟ → กรอง / toggle เปรียบเทียบ
 function handleChartClick(type, value){
   if(!value) return;
   setTimeout(() => {
@@ -1014,8 +931,6 @@ function genHTMLInsight(icon, tint, title, desc){
 function genPackerCard(name, stats, colorIndex){
   const c = chartColors[colorIndex % 10];
   const chColor = getChannelColor(stats.topChannel.name);
-  
-  // กำหนดสี Utilization ตามเปอร์เซ็นต์
   let uColor = stats.util >= 100 ? '#10b981' : (stats.util >= 80 ? '#3b82f6' : (stats.util >= 50 ? '#f59e0b' : '#e11d48'));
 
   return `
@@ -1075,9 +990,6 @@ function genPackerCard(name, stats, colorIndex){
   </div>`;
 }
 
-// =========================================================
-// 2. INIT & GLOBAL STATE
-// =========================================================
 function initDashboard() {
   refreshAll();
 }
@@ -1088,7 +1000,6 @@ if (document.readyState === 'loading') {
   initDashboard();
 }
 
-// ปิด dropdown เมื่อคลิกข้างนอก
 document.addEventListener('click', (e) => {
   document.querySelectorAll('.dd-panel.open').forEach(p => {
     let wrap = p.parentElement;
@@ -1117,7 +1028,6 @@ function refreshAll(){
   window.globalDates = { year:new Set(), quarter:new Set(), month:new Set(), week:new Set(), date:new Set() };
   window.uniquePickPickers.clear(); window.uniquePackPickers.clear();
 
-  // สร้าง Time Stamp เพื่อบังคับไม่ให้ Browser จำค่าเก่า (Bypass Cache)
   const noCache = '&t=' + Date.now();
 
   Promise.all([
@@ -1128,10 +1038,8 @@ function refreshAll(){
   ]).then((results) => {
     let [pickRes, packRes, shipRes, stockRes] = results;
 
-    // 1. Shipping ก่อน เพื่อสร้าง Map ให้ Packing lookup ขนส่ง
     if(shipRes && shipRes.data) processShip(shipRes.data);
     
-    // สร้าง Map ให้ Pack อ้างอิง
     window.shipMethodMap = new Map();
     window.shipData.forEach(s => {
       if(!s.o || !s.md || s.md === 'ไม่ระบุ') return;
@@ -1141,11 +1049,8 @@ function refreshAll(){
       });
     });
 
-    // 2. Packing
     if(packRes && packRes.data) processPack(packRes.data);
-    // 3. Picking
     if(pickRes && pickRes.data) processPick(pickRes.data);
-    // 4. Stock Accuracy
     if(stockRes && stockRes.data) processStock(stockRes.data);
 
     if(i) i.classList.remove('fa-spin');
@@ -1164,13 +1069,11 @@ function refreshAll(){
   });
 }
 
-// -- Global Date UI
 function setGlobalDateMode(mode, skipApply = false){
   document.getElementById('global-date-mode').value = mode;
   document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
   let btn = document.getElementById('btn-mode-' + mode);
   if(btn) btn.classList.add('active');
-  // ส่งค่า true เพื่อบังคับให้ดึงค่าช่วงเวลาล่าสุดขึ้นมาเสมอเวลาคลิกเปลี่ยนโหมด
   updateGlobalDateOptions(skipApply, true);
 }
 
@@ -1178,7 +1081,7 @@ function updateGlobalDateOptions(skipApply = false, forceLatest = false){
   let m = document.getElementById('global-date-mode').value;
   let c = document.getElementById('global-date-value-container');
   let s = document.getElementById('global-date-value');
-  let prevVal = s.value; // เก็บค่าที่เลือกไว้เดิม
+  let prevVal = s.value; 
   
   if(m === 'all'){ 
     c.style.display = 'none'; 
@@ -1189,11 +1092,9 @@ function updateGlobalDateOptions(skipApply = false, forceLatest = false){
     let dateArr = Array.from(window.globalDates[m]).sort().reverse();
     dateArr.forEach(o => s.innerHTML += `<option value="${o}">${fmtDispDate(m,o)}</option>`);
     
-    // ตั้งค่าให้เลือกข้อมูลอันแรก (ล่าสุด) เสมอเวลาสลับโหมดใหม่
     if(forceLatest && dateArr.length > 0) {
         s.value = dateArr[0];
     } 
-    // กรณีที่อัปโหลดไฟล์ใหม่ ให้พยายามคงค่าเดิมที่เลือกไว้ถ้ายังมีอยู่ หรือถ้าไม่มีก็เลือกอันล่าสุดให้แทน
     else if (!forceLatest && Array.from(s.options).some(opt => opt.value === prevVal)) {
         s.value = prevVal;
     } else if (dateArr.length > 0) {
@@ -1214,13 +1115,10 @@ function applyGlobalFilter(){
     applyPickFilter();
     applyPackFilter();
     applyShipFilter();
-    
-    // หน่วงเวลาเล็กน้อยเพื่อให้ตัวเลขบนหน้าจออัปเดตเสร็จก่อน แล้วค่อยส่งให้ AI วิเคราะห์ตามหน้าที่เปิดอยู่
     setTimeout(() => generateAIAnalysis(window.currentView), 300);
   }, 10);
 }
 
-// -- Dropdowns
 function toggleDropdown(id){ document.getElementById(id).classList.toggle('open'); }
 
 function buildCheckboxes(cls, set, listId, btnId){
@@ -1236,40 +1134,27 @@ function updateText(cls, btnId){
 function updatePickEmpText(){ updateText('pick-cb','pick-emp-btn-text'); }
 function updatePackEmpText(){ updateText('pack-cb','pack-emp-btn-text'); }
 
-// =========================================================
-// 3. PICKING & STOCK ACCURACY
-// =========================================================
 function processStock(data){
   window.stockData = [];
   if(!data || data.length < 2) return;
   
   let rows = data.slice(1);
-  let cd = 2;   // C = วันที่ (Index 2)
-  let cItem = 3; // D = สินค้า (Index 3)
-  let ck = 10;  // K = ผลต่างของสต็อกจำนวนชิ้น (Index 10)
+  let cd = 2;   
+  let cItem = 3; 
+  let ck = 10;  
 
   rows.forEach(r => {
     let rawDate = cd < r.length ? r[cd] : null;
     let dInfo = extractDateInfo(rawDate);
-    if(!dInfo) return; // ข้ามถ้าไม่มีวันที่
+    if(!dInfo) return; 
 
-    // เพิ่มวันที่เข้าไปให้ตัวกรองหลักทำงานร่วมกันได้
     ['year','month','quarter','week','date'].forEach(k => window.globalDates[k].add(dInfo[k==='date'?'fd':k.charAt(0)]));
-
-    // ดึงชื่อสินค้า
     let itemName = cItem < r.length && r[cItem] ? String(r[cItem]).trim() : 'ไม่ระบุ';
-
-    // ดึงค่าผลต่าง
     let rawDiff = ck < r.length && r[ck] ? String(r[ck]).replace(/,/g, '').trim() : '0';
     let diff = parseFloat(rawDiff);
     if(isNaN(diff)) diff = 0;
 
-    window.stockData.push({
-      d: dInfo,
-      item: itemName,
-      diff: diff,
-      isMismatch: diff !== 0
-    });
+    window.stockData.push({ d: dInfo, item: itemName, diff: diff, isMismatch: diff !== 0 });
   });
 }
 
@@ -1288,19 +1173,11 @@ function processPick(data){
   if(!data || data.length < 2) return;
   let rows = data.slice(1);
   
-  let cb=1; 
-  let cm=4; 
-  let ct=7; 
-  let cq=16; 
-  let cd=17; 
-  let ch=18; 
-  let cp=21;
+  let cb=1; let cm=4; let ct=7; let cq=16; let cd=17; let ch=18; let cp=21;
 
   rows.forEach(r => {
     let p = cp < r.length && r[cp] ? String(r[cp]).trim() : ''; 
-    let b = cb < r.length && r[cb] ? String(r[cb]).trim() : '-'; // ตั้งเป็น '-' ไว้หากไม่มีข้อมูลเพื่อป้องกันบรรทัดถูกทิ้ง
-    
-    // กรองขยะโดยดูเฉพาะการไม่ระบุพนักงาน (เอาเงื่อนไข !b หรือ b === '-' ออก)
+    let b = cb < r.length && r[cb] ? String(r[cb]).trim() : '-'; 
     if(!p || p==='-' || p.toLowerCase()==='null' || p==='ไม่ระบุ' || p==='ไม่ระบุพนักงาน') return;
     
     let rawDate = cd < r.length ? r[cd] : null;
@@ -1326,14 +1203,12 @@ function applyPickFilter(){
   let dm=document.getElementById('global-date-mode').value, dv=document.getElementById('global-date-value').value;
   let emps = Array.from(document.querySelectorAll('.pick-cb:checked')).map(c=>c.value);
   
-  // ---------- PICKING CALCULATION ----------
   let d = window.pickData.filter(x => (dm==='all'||dv==='all' ? true : (x.d && x.d[dm==='date'?'fd':dm.charAt(0)]===dv)) && emps.includes(x.picker));
 
   let agg = { tq:0, tm:0, b:new Set(), m:new Set(), validQty:0, validMins:0, d:{}, h:{}, p:{} }, dates=new Set(), hours=new Set();
   d.forEach(x => {
     agg.tq+=x.qty; agg.tm+=x.mins; 
     
-    // ตรวจสอบว่าเป็นช่วงวันที่หยิบแบบ By Order หรือไม่ (30/4/26 - 6/5/26)
     let isByOrderDate = x.d && x.d.fd >= '2026-04-30' && x.d.fd <= '2026-05-06';
     let isValidBatch = x.batch && x.batch !== '-';
     
@@ -1341,7 +1216,6 @@ function applyPickFilter(){
       agg.b.add(x.batch);
     }
     
-    // ดึงเฉพาะข้อมูลที่มีการลงเวลาจริงมาคำนวณความเร็ว (ป้องกันความเร็วเฟ้อ)
     if(x.qty > 0 && x.mins > 0){
         agg.validQty += x.qty;
         agg.validMins += x.mins;
@@ -1369,7 +1243,6 @@ function applyPickFilter(){
     }
     
     if(!isByOrderDate && isValidBatch) agg.p[x.picker].b.add(x.batch);
-    // เก็บรายชื่อเครื่องมือที่ใช้งาน
     if(x.mach && x.mach!=='-') x.mach.split(/[,/]/).forEach(m=>{if(m.trim()) agg.m.add(m.trim())});
   });
 
@@ -1390,7 +1263,6 @@ function applyPickFilter(){
     km.style.display = mc > 1 ? 'inline-block' : 'none'; 
   } 
 
-  // กรองคนที่ไม่ระบุ, คุณเพชรรัตน์ และ คุณนพดล ออกจากผู้ชนะ
   let stats = Object.keys(agg.p)
     .filter(k => k !== 'ไม่ระบุ' && k !== 'เพชรรัตน์ เอกตระกูล' && k !== 'นพดล รอดมณี')
     .map(k => ({ n:k, r:(agg.p[k].validMins > 0 ? (agg.p[k].validQty / agg.p[k].validMins) * 60 : 0), b:agg.p[k].b.size }))
@@ -1398,7 +1270,6 @@ function applyPickFilter(){
     
   updateEl('pick-kpi-top', stats.length>0 ? stats[0].n : '-');
 
-  // Overview update
   updateEl('ov-pick-items', agg.tq.toLocaleString());
   updateEl('ov-pick-batches', agg.b.size.toLocaleString());
   let highlightSpeed = Math.round(systemRateHr).toLocaleString();
@@ -1409,7 +1280,6 @@ function applyPickFilter(){
 
   let dArr = Array.from(dates).sort(), hArr = Array.from(hours).sort();
   
-  // สำหรับกราฟ แสดงทุกคน
   let allStats = Object.keys(agg.p)
     .filter(k => k !== 'ไม่ระบุ')
     .map(k => ({ n:k, r:(agg.p[k].validMins > 0 ? (agg.p[k].validQty / agg.p[k].validMins) * 60 : 0), b:agg.p[k].b.size }))
@@ -1432,8 +1302,6 @@ function applyPickFilter(){
   let hrDs = pickersToShow.map((p,i)=>({label:p, data:hArr.map(h=>agg.p[p]&&agg.p[p].h[h]||0), borderColor:chartColors[i%10], backgroundColor:chartColors[i%10]+'40', fill:true, tension:0.4}));
   pCharts.hour = new Chart(document.getElementById('pickHourChart'), { type:'line', data:{labels:hArr, datasets:hrDs}, options:{maintainAspectRatio:false, scales:{x:{offset:true}, y:{beginAtZero:true}}, interaction:{mode:'index', intersect:false}, plugins:{legend:{display:true, position:'top'}}} });
 
-  // ---------- STOCK ACCURACY CALCULATION ----------
-  // การคำนวณ Stock จะอิงแค่ Global Date โดยไม่สนใจ Filter พนักงานหยิบ
   let sData = window.stockData.filter(x => (dm==='all'||dv==='all' ? true : (x.d && x.d[dm==='date'?'fd':dm.charAt(0)]===dv)));
   
   let sAgg = { counted: 0, mismatch: 0, diffQty: 0, d: {}, items: {} };
@@ -1441,7 +1309,6 @@ function applyPickFilter(){
     sAgg.counted++;
     if (x.isMismatch) {
       sAgg.mismatch++;
-      // เก็บรายชื่อและยอดรวมผลต่างของสินค้านั้นๆ
       if(!sAgg.items[x.item]) sAgg.items[x.item] = 0;
       sAgg.items[x.item] += x.diff;
     }
@@ -1453,14 +1320,12 @@ function applyPickFilter(){
     if (x.isMismatch) sAgg.d[dt].mismatch++;
   });
 
-  // สูตรใหม่: 100 - ((จำนวนที่ไม่ตรง / จำนวนทั้งหมด) * 100)
   let accPct = sAgg.counted > 0 ? 100 - ((sAgg.mismatch / sAgg.counted) * 100) : 0;
   
   updateEl('stock-kpi-acc', accPct.toFixed(2) + '%');
   updateEl('stock-kpi-mismatch', sAgg.mismatch.toLocaleString());
   updateEl('stock-kpi-diff', sAgg.diffQty.toLocaleString());
 
-  // เรนเดอร์รายการสินค้าที่ไม่ตรง
   let mListContainer = document.getElementById('stock-mismatch-list');
   mListContainer.innerHTML = '';
   let mismatchKeys = Object.keys(sAgg.items).sort((a,b) => Math.abs(sAgg.items[b]) - Math.abs(sAgg.items[a]));
@@ -1530,8 +1395,6 @@ function applyPickFilter(){
     }
   });
 
-  // ---------- STOCK ACCURACY FOR WEEKLY & MONTHLY CHARTS ----------
-  // กรองเฉพาะ "ปี" เดียวกับที่ถูกเลือกใน Global Filter (ถ้าไม่ได้เลือกปีไหนเลย จะแสดงทั้งหมด)
   let activeYear = (dm !== 'all' && dv !== 'all') ? dv.substring(0, 4) : 'ทั้งหมด';
   let activeYearText = activeYear === 'ทั้งหมด' ? 'ภาพรวมทั้งหมด' : `ปี ${activeYear}`;
   
@@ -1627,7 +1490,6 @@ function applyPickFilter(){
     }
   });
 
-  // ---------- INSIGHTS UPDATE ----------
   let c = document.getElementById('pick-insights'); c.innerHTML='';
   if(!stats.length && !sAgg.counted){ c.innerHTML='<p style="color:var(--dim)">ไม่มีข้อมูล</p>'; return; }
   
@@ -1648,9 +1510,6 @@ function applyPickFilter(){
   }
 }
 
-// =========================================================
-// 4. PACKING
-// =========================================================
 function handlePackUpload(event){
   let file = event.target.files[0]; if(!file) return;
   document.getElementById('main-loading').classList.remove('hidden'); document.getElementById('view-packing').classList.add('hidden');
@@ -1670,16 +1529,8 @@ function processPack(data){
   }
   
   let rows = data.slice(1);
-  
-  let cd = 2;   // C = วันที่ (Index 2)
-  let cp = 1;   // B = ชื่อพนักงาน (Index 1)
-  let ct = 3;   // D = เวลาใช้งานหนาแน่น (Index 3)
-  let cc = 5;   // F = ช่องทางการขาย (Index 5)
-  let cst = 14; // O = สถานีแพ็ค
-  let cOrd = 12; // M = หมายเลขออเดอร์ (ไว้ Lookup)
-  let cDur = 21; // V = ระยะเวลาที่แพ็ค
+  let cd = 2; let cp = 1; let ct = 3; let cc = 5; let cst = 14; let cOrd = 12; let cDur = 21;
 
-  // รายชื่อที่ต้องการตัดออกจากการคำนวณระบบแพ็ค
   const excludedPackers = ['operation admin1', 'wh admin 1', 'operation engineer', 'pop napat', 'ton jakapan'];
 
   rows.forEach(r => {
@@ -1695,7 +1546,6 @@ function processPack(data){
     if(!dInfo) return;
 
     let p = cp < r.length && r[cp] ? String(r[cp]).trim() : '';
-    // ล้างบางคำว่าไม่ระบุออกจากการคำนวณทั้งหมด
     if(!p || p === '-' || p.toLowerCase() === 'null' || p === 'ไม่ระบุ' || p === 'ไม่ระบุพนักงาน') return;
     if(excludedPackers.includes(p.toLowerCase())) return;
 
@@ -1750,16 +1600,14 @@ function applyPackFilter(){
   let days=new Set(), months=new Set(), st={}, ch={}, sh={}, h={}, p={}, w={}, ph={}, pch={};
   let totalDurMins = 0;
   let totalSpeedQty = 0; 
-  let dailyStats = {}; // เพิ่มตัวแปรสำหรับเก็บข้อมูลรายวัน
+  let dailyStats = {}; 
 
   d.forEach(x => {
     days.add(x.d.fd); months.add(x.d.m);
     
-    // --- เก็บข้อมูลออเดอร์และจำนวนพนักงานในแต่ละวัน ---
     if (!dailyStats[x.d.fd]) dailyStats[x.d.fd] = { orders: 0, packers: new Set() };
     dailyStats[x.d.fd].orders += x.qty;
     if (x.p !== 'ไม่ระบุ') dailyStats[x.d.fd].packers.add(x.p);
-    // -----------------------------------------
 
     if(x.st && x.st.toLowerCase().includes('station')){
       if(!st[x.st]) st[x.st] = new Set();
@@ -1768,7 +1616,6 @@ function applyPackFilter(){
     
     ch[x.c]=(ch[x.c]||0)+1; sh[x.sh]=(sh[x.sh]||0)+1; h[x.hr]=(h[x.hr]||0)+1;
     
-    // เพิ่ม hourlyQty เพื่อเก็บยอดแพ็ครายชั่วโมง (เอาไว้ตัดเศษชั่วโมงท้ายกะ)
     if(!p[x.p]) p[x.p] = { count:0, dur:0, speedQty:0, activeHours: new Set(), hourlyQty: {}, dailyQty: {} };
     p[x.p].count += x.qty;
     let slot = `${x.d.fd}_${x.hr}`;
@@ -1791,7 +1638,6 @@ function applyPackFilter(){
   let numMonth = Math.round(d.length/Math.max(1, months.size));
   let numDay = Math.round(d.length/Math.max(1, days.size));
   
-  // คำนวณความเร็วรวมจากชั่วโมงทำงานหลักทั้งหมดของทีม (คัดกรองชั่วโมงที่แพ็ค >= 12 ออเดอร์)
   let totalFullHours = 0;
   let totalFullHourQty = 0;
   let totalAnyHours = 0;
@@ -1803,7 +1649,7 @@ function applyPackFilter(){
               let q = p[k].hourlyQty[slot];
               totalAnyHours++;
               totalAnyQty += q;
-              if (q >= 12) { // ตัดเศษชั่วโมงท้ายกะที่น้อยกว่า 12 ออเดอร์ออกจากการหารเวลา
+              if (q >= 12) { 
                   totalFullHours++;
                   totalFullHourQty += q;
               }
@@ -1813,20 +1659,19 @@ function applyPackFilter(){
 
   let overallSpeed = totalFullHours > 0 ? Math.round(totalFullHourQty / totalFullHours) : (totalAnyHours > 0 ? Math.round(totalAnyQty / totalAnyHours) : 0);
   
-  // === ปรับสูตร Team Utilization ใหม่ ===
+  // === คำนวณเป้าหมายรวมและ Team Utilization แบบปรับปรุง ===
   let totalDailyUtil = 0;
   let validDaysCount = 0;
   let avgTeamTarget = 0;
   let sumTeamTarget = 0;
   
   for (let day in dailyStats) {
-      let numPackers = dailyStats[day].packers.size; // จำนวนคนทำงานในวันนั้น
-      let dailyOrders = dailyStats[day].orders; // ยอดงานในวันนั้น
+      let numPackers = dailyStats[day].packers.size;
+      let dailyOrders = dailyStats[day].orders;
       
       if (numPackers > 0) {
-          // กำหนดเป้าหมาย: ตั้งแต่ 1 ต.ค. 2026 เป้า 300 นอกนั้น 200
+          // เป้าหมายใหม่: วันที่ 1/10/2026 ขึ้นไปเป็น 300, ก่อนหน้านั้นเป็น 200
           let targetPerPerson = (day >= '2026-10-01') ? 300 : 200;
-          // Utilization ของแต่ละวัน = (ยอดออเดอร์วันนั้น / (คนแพ็ควันนั้น * เป้าหมาย)) * 100
           let dUtil = (dailyOrders / (numPackers * targetPerPerson)) * 100;
           totalDailyUtil += dUtil;
           validDaysCount++;
@@ -1834,10 +1679,8 @@ function applyPackFilter(){
       }
   }
   
-  // นำผลรวมเปอร์เซ็นต์ทุกวัน มาหารด้วยจำนวนวันทำงานทั้งหมด
   let overallUtil = validDaysCount > 0 ? Math.round(totalDailyUtil / validDaysCount) : 0;
   avgTeamTarget = validDaysCount > 0 ? Math.round(sumTeamTarget / validDaysCount) : 200;
-  // ===================================
 
   let dArrSort = Array.from(days).sort();
   let latestDay = dArrSort.length > 0 ? dArrSort[dArrSort.length - 1] : null;
@@ -1848,13 +1691,13 @@ function applyPackFilter(){
   } else {
       updateEl('pack-kpi-latest-date', '-');
   }
+  
   updateEl('pack-kpi-latest-vol', latestDayQty.toLocaleString());
-
   updateEl('pack-kpi-total', d.length.toLocaleString());
   updateEl('pack-kpi-speed', overallSpeed.toLocaleString());
   updateEl('pack-kpi-day', numDay.toLocaleString());
   updateEl('pack-kpi-util', overallUtil + '%');
-  updateEl('pack-kpi-util-label', `Team Util. (เป้า ${avgTeamTarget})`);
+  updateEl('pack-kpi-util-label', `Team Util. (เป้า ${avgTeamTarget}/คน/วัน)`);
 
   let pArr = Object.keys(p).filter(k => k !== 'ไม่ระบุ').sort((a,b)=>p[b].count-p[a].count);
   let stArr = Object.keys(st).filter(k => k !== 'ไม่ระบุ').sort((a,b)=>{
@@ -2033,7 +1876,6 @@ function applyPackFilter(){
   let hrDs = packersToShow.map((e,i)=>({label:e, data:hArr.map(hx=>ph[e]?ph[e][hx]||0:0), borderColor:chartColors[i%10], backgroundColor:chartColors[i%10]+'40', fill:true, tension:0.4}));
   kCharts.time = new Chart(document.getElementById('packTimeChart'), { type:'line', data:{labels:hArr, datasets:hrDs}, options:{maintainAspectRatio:false, interaction:{mode:'index', intersect:false}, plugins:{legend:{display:true, position:'top'}, datalabels:{display:false}}} });
 
-  // Individual Deep Dive
   let compareHTML = '';
   packersToShow.forEach((pName, idx) => {
     let pData = d.filter(x => x.p === pName);
@@ -2054,11 +1896,10 @@ function applyPackFilter(){
 
     let pOrders = p[pName].count;
     let pDur = p[pName].dur;
-    let workHrs = p[pName].activeHours.size; // จำนวนชั่วโมงที่สแตนด์บายทั้งหมด
+    let workHrs = p[pName].activeHours.size;
     let uDays = Math.max(1, pDays.size);
     let aDay = Math.round(pOrders / uDays);
     
-    // เปลี่ยนสูตรความเร็ว: คำนวณความเร็วเฉพาะชั่วโมงหลัก (>= 12 ออเดอร์)
     let fullHours = 0;
     let fullHourQty = 0;
     for (let slot in p[pName].hourlyQty) {
@@ -2069,10 +1910,9 @@ function applyPackFilter(){
         }
     }
     
-    // ถ้ามีชั่วโมงหลักให้ใช้ชั่วโมงหลักหาร ถ้าไม่มีเลย (วันที่แย่มากๆ) ให้ใช้ชั่วโมงทั้งหมดเป็น Fallback
     let aHr = fullHours > 0 ? Math.round(fullHourQty / fullHours) : (workHrs > 0 ? Math.round(pOrders / workHrs) : 0);
     
-    // คำนวณเป้าหมายรายคนตามวันที่มาทำงานจริง
+    // === คำนวณเป้าหมายรายคนแบบ Dynamic ===
     let pTargetTotal = 0;
     pDays.forEach(day => {
         pTargetTotal += (day >= '2026-10-01') ? 300 : 200;
@@ -2096,7 +1936,6 @@ function applyPackFilter(){
     compContainer.classList.add('hidden');
   }
 
-  // Insights
   let ci = document.getElementById('pack-insights'); ci.innerHTML='';
   if(!d.length){ ci.innerHTML='<p style="color:var(--dim)">ไม่มีข้อมูล</p>'; return; }
   
@@ -2108,9 +1947,6 @@ function applyPackFilter(){
   if(hArr.length) ci.innerHTML += genHTMLInsight('fa-clock','tint-blue','Peak Hour (โดยรวม)', `เวลา <strong>${hArr.reduce((a,b)=>h[a]>h[b]?a:b, hArr[0])}</strong> งานหนักที่สุด`);
 }
 
-// =========================================================
-// 5. SHIPPING
-// =========================================================
 function handleShipUpload(event){
   let file = event.target.files[0]; if(!file) return;
   document.getElementById('main-loading').classList.remove('hidden'); document.getElementById('view-shipping').classList.add('hidden');
@@ -2133,12 +1969,12 @@ function processShip(data){
   if(!data || data.length < 2) return;
   let rows = data.slice(1);
 
-  let dt = 0;   // A = วันที่ (สมมุติ) หรือคอลัมน์แรกสุด
-  let ord = 6;  // G = หมายเลขออเดอร์
-  let ch = 10;  // K = ช่องทาง
-  let colM = 12;// M = ช่องทางจัดส่ง (Col M)
-  let st = 16;  // Q = สถานะ
-  let md = 17;  // R = ขนส่ง
+  let dt = 0;   
+  let ord = 6;  
+  let ch = 10;  
+  let colM = 12;
+  let st = 16;  
+  let md = 17;  
 
   rows.forEach(r => {
     let o = ord < r.length && r[ord] ? String(r[ord]).trim() : '';
@@ -2199,7 +2035,6 @@ function applyShipFilter(){
 
   let dArr = Object.keys(bd).sort(), sArr = Object.keys(bs).sort((a,b)=>bs[b]-bs[a]);
 
-  // Overview update
   updateEl('ov-ship-orders', ords.size.toLocaleString());
   updateEl('ov-highlight-orders', ords.size.toLocaleString());
   updateEl('ov-ship-pending', pen.size.toLocaleString());
@@ -2225,7 +2060,6 @@ function applyShipFilter(){
   destroyChart(sCharts,'method');
   sCharts.method = new Chart(document.getElementById('shipMethodChart'), { type:'bar', data:{labels:mArr, datasets:[{label:'จำนวน', data:mArr.map(x=>bm[x]), backgroundColor:mArr.map((n,i)=>getShippingColor(n,i)), borderRadius:4}]}, options:{layout:{padding:{top:20}}, maintainAspectRatio:false, plugins:{legend:{display:false}, datalabels:{display:true, align:'top', anchor:'end', formatter:v=>v>0?v.toLocaleString():''}}} });
 
-  // Insights
   let ci = document.getElementById('ship-insights'); ci.innerHTML='';
   if(!ords.size){ ci.innerHTML='<p style="color:var(--dim)">ไม่มีข้อมูล</p>'; return; }
   ci.innerHTML += genHTMLInsight('fa-store','tint-purple','ช่องทางขายหลัก', `<strong>${cArrAll[0]||'-'}</strong> เยอะสุด (${bc[cArrAll[0]]?.size.toLocaleString()||0})`);
@@ -2234,13 +2068,10 @@ function applyShipFilter(){
   if(pen.size>0) ci.innerHTML += genHTMLInsight('fa-triangle-exclamation','tint-rose','มีออเดอร์ค้าง', `<strong>${pen.size.toLocaleString()}</strong> ออเดอร์ ควรตรวจสอบ`);
 }
 
-// =========================================================
-// 6. EXPORT
-// =========================================================
 let activeViewBeforeExport = 'overview';
 
 async function prepareForExport(){
-  window.scrollTo(0,0); // เลื่อนหน้าจอกลับบนสุดเสมอ ป้องกันบั๊กเซฟรูปแล้วตกขอบ
+  window.scrollTo(0,0);
   let activeTab = 'overview';
   ['overview','picking','packing','shipping'].forEach(x => {
     let view = document.getElementById(`view-${x}`);
@@ -2250,12 +2081,10 @@ async function prepareForExport(){
     }
   });
 
-  // ใส่คลาสบอกเบราว์เซอร์ว่ากำลังเข้าสู่โหมดพิมพ์
   document.body.classList.add('export-active');
   document.getElementById('sticky-header').classList.add('exporting');
   document.querySelectorAll('.no-print-export').forEach(e => e.classList.add('exporting'));
 
-  // ดึงค่าช่วงเวลามาใส่ในส่วนหัวตอนพริ้นท์
   let mode = document.getElementById('global-date-mode').value;
   let valSel = document.getElementById('global-date-value');
   let periodText = (mode === 'all' || valSel.value === 'all') ? 'ทั้งหมด' : valSel.options[valSel.selectedIndex].text;
@@ -2265,11 +2094,9 @@ async function prepareForExport(){
     let view = document.getElementById(`view-${x}`);
     if(view){
       if(activeTab === 'overview'){
-        // ถ้ากดพิมพ์ที่หน้าภาพรวม ให้โชว์ข้อมูลทุกแผนกเรียงต่อกัน
         view.classList.remove('hidden');
         view.classList.add('export-section');
       } else {
-        // ถ้ากดที่หน้าเจาะจง ให้โชว์แค่หน้านั้นหน้าเดียว
         if(x === activeTab){
           view.classList.remove('hidden');
           view.classList.add('export-section');
@@ -2281,12 +2108,10 @@ async function prepareForExport(){
     }
   });
 
-  // บังคับ Resize กราฟทั้งหมดให้เต็มขนาดจอ 1200px ป้องกันการถูกบีบตัด
   Object.values(pCharts).forEach(c => { if(Array.isArray(c)){ c.forEach(ic => ic.resize()); } else if(c) c.resize(); });
   Object.values(kCharts).forEach(c => { if(Array.isArray(c)){ c.forEach(ic => ic.resize()); } else if(c) c.resize(); });
   Object.values(sCharts).forEach(c => { if(Array.isArray(c)){ c.forEach(ic => ic.resize()); } else if(c) c.resize(); });
 
-  // รอให้กราฟเรนเดอร์เสร็จสมบูรณ์ (เพิ่มเวลาหน่วงนิดนึงให้ภาพครบ)
   await new Promise(r => setTimeout(r, 1200));
   return document.getElementById('dashboard-container');
 }
@@ -2306,7 +2131,6 @@ function restoreAfterExport(){
   document.getElementById('sticky-header').classList.remove('exporting');
   document.querySelectorAll('.no-print-export').forEach(e => e.classList.remove('exporting'));
   
-  // Resize กราฟกลับมาขนาดปกติ
   Object.values(pCharts).forEach(c => { if(Array.isArray(c)){ c.forEach(ic => ic.resize()); } else if(c) c.resize(); });
   Object.values(kCharts).forEach(c => { if(Array.isArray(c)){ c.forEach(ic => ic.resize()); } else if(c) c.resize(); });
   Object.values(sCharts).forEach(c => { if(Array.isArray(c)){ c.forEach(ic => ic.resize()); } else if(c) c.resize(); });
@@ -2358,10 +2182,8 @@ async function exportToPDF(){
 async function printDashboard() {
   try {
     await prepareForExport();
-    // ให้เวลา Browser render UI เล็กน้อยก่อนเรียกหน้าต่างพิมพ์
     setTimeout(() => {
         window.print();
-        // คืนค่าหน้าจอกลับสู่สภาพเดิมหลังจากหน้าต่างพิมพ์ถูกปิด
         setTimeout(restoreAfterExport, 500);
     }, 100);
   } catch(e) {
@@ -2371,35 +2193,13 @@ async function printDashboard() {
   }
 }
 
-// =========================================================
-// 7. AI INTEGRATION
-// =========================================================
-const apiKey = ""; // API Key จะถูกจัดการโดยอัตโนมัติจากระบบ Canvas
-let userApiKey = localStorage.getItem('gemini_logistics_api_key') || "";
-
-function openApiModal() {
-  document.getElementById('api-key-input').value = userApiKey;
-  document.getElementById('api-key-modal').classList.add('show');
-}
-
-function closeApiModal() {
-  document.getElementById('api-key-modal').classList.remove('show');
-}
-
-function saveApiKey() {
-  userApiKey = document.getElementById('api-key-input').value.trim();
-  localStorage.setItem('gemini_logistics_api_key', userApiKey);
-  closeApiModal();
-  showNotification("บันทึก API Key สำเร็จ กรุณากดวิเคราะห์ใหม่อีกครั้ง");
-}
+/* ========================================================= */
+/* 7. AI INTEGRATION                                         */
+/* ========================================================= */
+const apiKey = "AQ.Ab8RN6LN4S6AV0wsLZm7O6KZuKVVQ9iXJpk0ZaK5jK49dGOXdQ"; 
 
 async function fetchAIInsights(promptText, retries = 5) {
-  const activeKey = userApiKey || apiKey;
-  if (!activeKey) {
-    throw new Error("API_KEY_MISSING");
-  }
-
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${activeKey}`;
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
   const payload = { 
     contents: [{ parts: [{ text: promptText }] }], 
     systemInstruction: { 
@@ -2409,7 +2209,7 @@ async function fetchAIInsights(promptText, retries = 5) {
     } 
   };
   
-  let delays = [1000, 2000, 4000, 8000, 16000]; // Exponential Backoff
+  let delays = [1000, 2000, 4000, 8000, 16000]; 
   for (let i = 0; i < retries; i++) {
     try {
       const res = await fetch(url, {
@@ -2434,14 +2234,12 @@ async function generateAIAnalysis(type = window.currentView || 'overview') {
   if (icon) icon.classList.add('fa-spin', 'fa-rotate');
   if (contentBox) contentBox.innerHTML = `<div style="display:flex; align-items:center; gap: 10px; color: var(--muted);"><i class="fa-solid fa-circle-notch fa-spin txt-purple"></i> <span style="color:var(--purple)">AI กำลังประมวลผลข้อมูล${type === 'overview' ? 'ภาพรวม' : 'เฉพาะแผนก'}และวิเคราะห์แนวโน้ม...</span></div>`;
 
-  // รวบรวมข้อมูลช่วงเวลา
   let periodMode = document.getElementById('global-date-mode').value;
   let periodVal = document.getElementById('global-date-value');
   let periodText = (periodMode === 'all' || periodVal.value === 'all') ? 'ทั้งหมด' : periodVal.options[periodVal.selectedIndex].text;
 
   let prompt = `กรุณาวิเคราะห์ผลการดำเนินงานช่วงเวลา: ${periodText} \n`;
 
-  // จัดกลุ่มคำถามตามประเภทหน้าที่กำลังวิเคราะห์
   if (type === 'overview') {
     const stockAccEl = document.getElementById('stock-kpi-acc');
     prompt += `
@@ -2468,12 +2266,13 @@ async function generateAIAnalysis(type = window.currentView || 'overview') {
     - ผลต่างจำนวนชิ้นในสต็อก: ${document.getElementById('stock-kpi-diff')?.innerText || '0'} ชิ้น
     `;
   } else if (type === 'packing') {
+    let targetText = document.getElementById('pack-kpi-util-label')?.innerText || '';
     prompt += `
     วิเคราะห์เฉพาะแผนกแพ็คและจัดส่ง:
     - ยอดออเดอร์แพ็ค (ทั้งหมด): ${document.getElementById('pack-kpi-total')?.innerText || '0'}
     - เฉลี่ยแพ็คต่อวัน: ${document.getElementById('pack-kpi-day')?.innerText || '0'}
     - ความเร็วแพ็คเฉลี่ย: ${document.getElementById('pack-kpi-speed')?.innerText || '0'} ออเดอร์/ชม.
-    - ประสิทธิภาพทีม (Team Util.): ${document.getElementById('pack-kpi-util')?.innerText || '0%'}
+    - ประสิทธิภาพทีม (${targetText}): ${document.getElementById('pack-kpi-util')?.innerText || '0%'}
     `;
   } else if (type === 'shipping') {
     prompt += `
@@ -2487,17 +2286,10 @@ async function generateAIAnalysis(type = window.currentView || 'overview') {
 
   try {
     const analysis = await fetchAIInsights(prompt);
-    // เปลี่ยนสัญลักษณ์ * แบบ markdown ที่อาจจะหลุดมาเป็น list ให้อ่านง่ายขึ้น
     let formattedAnalysis = analysis.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
     if (contentBox) contentBox.innerHTML = formattedAnalysis;
   } catch (e) {
-    if (e.message === "API_KEY_MISSING") {
-      // ซ่อน console.error ไว้เพื่อไม่ให้หน้าต่าง Editor แจ้งเตือนกวนใจ
-      if (contentBox) contentBox.innerHTML = '<p style="color: var(--amber-l);"><i class="fa-solid fa-key"></i> ไม่พบ API Key กรุณากดปุ่ม <b><i class="fa-solid fa-key"></i> API Key</b> ที่มุมขวาบนเพื่อตั้งค่าก่อนเริ่มวิเคราะห์</p>';
-    } else {
-      console.error("AI API Error:", e);
-      if (contentBox) contentBox.innerHTML = '<p style="color: var(--rose);"><i class="fa-solid fa-triangle-exclamation"></i> เกิดข้อผิดพลาดในการเชื่อมต่อกับ AI กรุณาลองตรวจสอบ API Key ให้ถูกต้อง หรือลองกดวิเคราะห์ใหม่อีกครั้ง</p>';
-    }
+    if (contentBox) contentBox.innerHTML = '<p style="color: var(--rose);"><i class="fa-solid fa-triangle-exclamation"></i> เกิดข้อผิดพลาดในการเชื่อมต่อกับ AI หรือโควต้าอาจเต็ม กรุณาลองกดวิเคราะห์ใหม่อีกครั้ง</p>';
   } finally {
     if (icon) icon.classList.remove('fa-spin', 'fa-rotate');
   }
